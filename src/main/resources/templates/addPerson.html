@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Add Person</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Create a person </h1>
+	<form th:action="@{/addPerson}" method="POST" th:object="${personForm}">
+		firstName: 
+		<input type="text" th:field="*{firstName}">   <!-- thuoc tinh cua doi tuong personForm -->
+		<br/>
+		lastName:
+		<input type="text" th:field="*{lastName}"> <!-- thuoc tinh cua doi tuong personForm -->
+		<br/>
+		<input type="submit" value="Create">
+	</form>
+	<br/>
+	<!-- kiem tra loi khi nhap thieu -->
+
+	<div th:if="${errorMessage}" th:utext="${errorMessage}" style="color:red; font-size: italic;">
+		
+	</div>
+
+</body>
+</html>
